@@ -11,6 +11,24 @@ extern int	ft_isalpha(int c);
 extern int	ft_isdigit(int c);
 extern int	ft_isalnum(int c);
 extern int	ft_isascii(int c);
+extern int	ft_isprint(int c);
+
+void	test_isprint()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_ISPRINT TESTS:\n");
+	c = 0;
+	nb_false = 0;
+	while (++c < 128)
+		if (ft_isprint(c) != isprint(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for 0 to 127: OK\n");
+	else
+		printf("\ttest for 0 to 127: %d fails\n", nb_false);
+}
 
 void	test_isascii()
 {
@@ -130,5 +148,6 @@ int main(void)
 	test_isdigit();
 	test_isalnum();
 	test_isascii();
+	test_isprint();
 	return (0);
 }
