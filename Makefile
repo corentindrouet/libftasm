@@ -6,17 +6,19 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 13:04:33 by cdrouet           #+#    #+#              #
-#    Updated: 2017/04/25 10:19:09 by cdrouet          ###   ########.fr        #
+#    Updated: 2017/04/25 10:46:15 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libfts.a
 SRC = ft_bzero.s \
 	  ft_strcat.s \
-
+	  ft_isalpha.s
+TEST_SRC= main.c
+TEST_NAME=test_asm
 BIN = $(SRC:.s=.o)
 NASM=~/.brew/bin/nasm
-NASM_FLAGS= -f macho64
+NASM_FLAG= -f macho64
 BIN_PATH=./
 SRC_PATH=./
 FLAG = -Wall -Wextra -Werror
@@ -28,9 +30,13 @@ $(NAME) : $(BIN)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.s
 	@/bin/echo -n "."
-	@$(NASM) $(NASM_FLAG) -o $@ -c $<
+	@$(NASM) $(NASM_FLAG) -o $@ $<
 
 all : $(NAME)
+
+test: $(NAME)
+	clang -o $(TEST_NAME) $(FLAG) $(TEST_SRC) -L. -lfts
+	./$(TEST_NAME)
 
 clean :
 	$(info Cleaning binaries...)
@@ -39,7 +45,7 @@ clean :
 
 fclean : clean
 	$(info Cleaning library...)
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(TEST_NAME)
 	$(info Done !)
 
 re : fclean all
