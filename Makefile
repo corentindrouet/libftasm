@@ -6,14 +6,17 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 13:04:33 by cdrouet           #+#    #+#              #
-#    Updated: 2017/04/25 10:46:15 by cdrouet          ###   ########.fr        #
+#    Updated: 2017/04/25 11:28:42 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libfts.a
 SRC = ft_bzero.s \
 	  ft_strcat.s \
-	  ft_isalpha.s
+	  ft_isalpha.s \
+	  ft_isdigit.s \
+	  ft_isalnum.s \
+	  ft_isascii.s
 TEST_SRC= main.c
 TEST_NAME=test_asm
 BIN = $(SRC:.s=.o)

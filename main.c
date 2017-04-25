@@ -8,6 +8,60 @@
 extern void	ft_bzero(void *str, int a);
 extern char	*ft_strcat(void *str1, void *str2);
 extern int	ft_isalpha(int c);
+extern int	ft_isdigit(int c);
+extern int	ft_isalnum(int c);
+extern int	ft_isascii(int c);
+
+void	test_isascii()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_ISASCII TESTS:\n");
+	c = -100;
+	nb_false = 0;
+	while (++c < 200)
+		if (ft_isascii(c) != isascii(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for -100 to 200: OK\n");
+	else
+		printf("\ttest for -100 to 200: %d fails\n", nb_false);
+}
+
+void	test_isalnum()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_ISALNUM TESTS:\n");
+	c = -1;
+	nb_false = 0;
+	while (++c < 128)
+		if (ft_isalnum(c) != isalnum(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for 0 to 127: OK\n");
+	else
+		printf("\ttest for 0 to 127 have %d fails\n", nb_false);
+}
+
+void	test_isdigit()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_ISDIGIT TESTS:\n");
+	c = -1;
+	nb_false = 0;
+	while (++c < 128)
+		if (ft_isdigit(c) != isdigit(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for 0 to 127: OK\n");
+	else
+		printf("\ttest for 0 to 127 have %d fails\n", nb_false);
+}
 
 void	test_isalpha()
 {
@@ -73,5 +127,8 @@ int main(void)
 	test_bzero();
 	test_strcat();
 	test_isalpha();
+	test_isdigit();
+	test_isalnum();
+	test_isascii();
 	return (0);
 }

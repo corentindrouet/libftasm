@@ -6,28 +6,27 @@ _ft_isalpha:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	mov r8, 0
-	mov r9, 'A'
+	mov r8, 'A'
 	jmp startuppercase
 
 startuppercase:
-	cmp rdi, r9
+	cmp rdi, r8
 	je endcorrect
-	cmp r9, 'Z'
+	cmp r8, 'Z'
 	je initlowercase
-	inc r9
+	inc r8
 	jmp startuppercase
 
 initlowercase:
-	mov r9, 'a'
+	mov r8, 'a'
 	jmp startlowercase
 
 startlowercase:
-	cmp rdi, r9
+	cmp rdi, r8
 	je endcorrect
-	cmp r9, 'z'
+	cmp r8, 'z'
 	je end
-	inc r9
+	inc r8
 	jmp startlowercase
 
 endcorrect:
