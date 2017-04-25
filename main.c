@@ -12,6 +12,50 @@ extern int	ft_isdigit(int c);
 extern int	ft_isalnum(int c);
 extern int	ft_isascii(int c);
 extern int	ft_isprint(int c);
+extern int	ft_toupper(int c);
+extern int	ft_tolower(int c);
+extern int	ft_puts(char *c);
+
+void	test_ft_puts()
+{
+	char re[10] = "bonjour";
+	ft_puts(re);
+//	puts(re);
+}
+
+void	test_tolower()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_TOLOWER TESTS:\n");
+	c = -1;
+	nb_false = 0;
+	while (++c < 128)
+		if (ft_tolower(c) != tolower(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for 0 to 127: OK\n");
+	else
+		printf("\ttest for 0 to 127: %d fails\n", nb_false);
+}
+
+void	test_toupper()
+{
+	int	c;
+	int	nb_false;
+
+	printf("FT_TOUPPER TESTS:\n");
+	c = -1;
+	nb_false = 0;
+	while (++c < 128)
+		if (ft_toupper(c) != toupper(c))
+			nb_false++;
+	if (nb_false == 0)
+		printf("\ttest for 0 to 127: OK\n");
+	else
+		printf("\ttest for 0 to 127: %d fails\n", nb_false);
+}
 
 void	test_isprint()
 {
@@ -149,5 +193,8 @@ int main(void)
 	test_isalnum();
 	test_isascii();
 	test_isprint();
+	test_toupper();
+	test_tolower();
+	test_ft_puts();
 	return (0);
 }

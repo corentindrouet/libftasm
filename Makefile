@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 13:04:33 by cdrouet           #+#    #+#              #
-#    Updated: 2017/04/25 11:42:40 by cdrouet          ###   ########.fr        #
+#    Updated: 2017/04/25 14:10:39 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ SRC = ft_bzero.s \
 	  ft_isdigit.s \
 	  ft_isalnum.s \
 	  ft_isascii.s \
-	  ft_isprint.s
+	  ft_isprint.s \
+	  ft_toupper.s \
+	  ft_tolower.s \
+	  ft_puts.s
 TEST_SRC= main.c
 TEST_NAME=test_asm
 BIN = $(SRC:.s=.o)
