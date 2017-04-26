@@ -1,6 +1,9 @@
 #include <stdio.h>
+#include <fcntl.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 #define BZERO_TEST 1
 #define STRCAT_TEST 1
 #define ISALPHA_TEST 1
@@ -15,12 +18,107 @@ extern int	ft_isprint(int c);
 extern int	ft_toupper(int c);
 extern int	ft_tolower(int c);
 extern int	ft_puts(char *c);
+extern size_t	ft_strlen(char *c);
+extern void	*ft_memset(void *b, int c, size_t len);
+extern void	*ft_memcpy(void *dst, void *src, size_t n);
+extern char	*ft_strdup(const char *s1);
+extern void	ft_cat(int fd);
+
+void	test_ft_cat()
+{
+	int fd;
+
+	fd = open("Makefile", O_RDONLY);
+	ft_cat(fd);
+	close(fd);
+}
+
+void	test_ft_strdup()
+{
+	char str[10] = "essai";
+	char	*ptr = NULL;
+
+	printf("FT_STRDUP TESTS:\n");
+	ptr = ft_strdup(str);
+	if (!ptr)
+		printf("\tempty ptr\n");
+	else if (ptr == str)
+		printf("\tno allocations have been done\n");
+	else if (strcmp(ptr, str))
+		printf("\tthe strings are differents: _ft:%s, std:%s\n", ptr, str);
+	else
+		printf("\ttest1: OK\n");
+	free(ptr);
+}
+
+void	test_ft_memcpy()
+{
+	char str[10] = "essai";
+	char str2[10] = "bonjour";
+	char str3[10] = "essai";
+	char str4[10] = "bonjour";
+	char	*ptr1;
+	char	*ptr2;
+
+	ptr1 = ft_memcpy(str, str2, 4);
+	ptr2 = memcpy(str3, str4, 4);
+	printf("FT_MEMCPY TESTS:\n");
+	if (ptr1 == str && !strcmp(ptr1, ptr2))
+		printf("\ttest1: OK\n");
+	else
+		printf("\ttest1:fail - ft_%s, std:%s\n", ptr1, ptr2);
+	ptr1 = ft_memcpy(str, str2, 0);
+	ptr2 = memcpy(str3, str4, 0);
+	if (ptr1 == str && !strcmp(ptr1, ptr2))
+		printf("\ttest2: OK\n");
+	else
+		printf("\ttest2:fail - ft_%s, std:%s\n", ptr1, ptr2);
+	ptr1 = ft_memcpy(str, str2, 10);
+	ptr2 = memcpy(str3, str4, 10);
+	if (ptr1 == str && !strcmp(ptr1, ptr2))
+		printf("\ttest3: OK\n");
+	else
+		printf("\ttest3:fail - ft_%s, std:%s\n", ptr1, ptr2);
+}
+
+void	test_ft_memset()
+{
+	char	str[10] = "bonjour";
+	char	str2[10] = "bonjour";
+
+	printf("FT_MEMSET TESTS:\n");
+	if (!strcmp(ft_memset(str, 'a', 5), memset(str2, 'a', 5)))
+		printf("\ttest1: OK\n");
+	else
+		printf("\ttest1: fail - ft_:%s, std:%s\n", str, str2);
+	strcpy(str, "i");
+	strcpy(str2, "i");
+	if (!strcmp(ft_memset(str, 'a', 0), memset(str2, 'a', 0)))
+		printf("\ttest2: OK\n");
+	else
+		printf("\ttest2: fail - ft_:%s, std:%s\n", str, str2);
+}
+
+void	test_ft_strlen()
+{
+	char	str[10] = "";
+
+	printf("FT_STRLEN TESTS:\n");
+	if (ft_strlen(str) == strlen(str))
+		printf("\ttest1: OK\n");
+	else
+		printf("\ttest1: fail -  ft_:%ld, std:%ld\n", ft_strlen(str), strlen(str));
+	strcpy(str, "bonjour");
+	if (ft_strlen(str) == strlen(str))
+		printf("\ttest2: OK\n");
+	else
+		printf("\ttest2: fail -  ft_:%ld, std:%ld\n", ft_strlen(str), strlen(str));
+}
 
 void	test_ft_puts()
 {
 	char re[10] = "bonjour";
 	ft_puts(re);
-//	puts(re);
 }
 
 void	test_tolower()
@@ -196,5 +294,10 @@ int main(void)
 	test_toupper();
 	test_tolower();
 	test_ft_puts();
+	test_ft_strlen();
+	test_ft_memset();
+	test_ft_memcpy();
+	test_ft_strdup();
+	test_ft_cat();
 	return (0);
 }
