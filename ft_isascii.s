@@ -6,22 +6,15 @@ _ft_isascii:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	jmp test_min
 
 test_min:
 	cmp rdi, 0
-	jge test_max
-	jmp end
+	jl end
 
 test_max:
 	cmp rdi, 127
-	jle endcorrect
-	jmp end
-
-endcorrect:
+	jg end
 	mov rax, 1
-	leave
-	ret
 
 end:
 	leave

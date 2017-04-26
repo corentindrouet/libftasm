@@ -6,22 +6,11 @@ _ft_isprint:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	jmp test_min
-
-test_min:
 	cmp rdi, 32
-	jge test_max
-	jmp end
-
-test_max:
+	jl end
 	cmp rdi, 126
-	jle endcorrect
-	jmp end
-
-endcorrect:
+	jg end
 	mov rax, 1
-	leave
-	ret
 
 end:
 	leave

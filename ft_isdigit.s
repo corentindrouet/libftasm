@@ -6,21 +6,13 @@ _ft_isdigit:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	mov r8, '0'
-	jmp start
 
 start:
-	cmp rdi, r8
-	je endcorrect
-	cmp r8, '9'
-	je end
-	inc r8
-	jmp start
-
-endcorrect:
+	cmp rdi, '0'
+	jl end
+	cmp rdi, '9'
+	jg end
 	mov rax, 1
-	leave
-	ret
 
 end:
 	leave

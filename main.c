@@ -173,13 +173,13 @@ void	test_strcat()
 	printf("FT_STRCAT TESTS:\n");
 	ptr = ft_strcat(str1, str2);
 	if (ptr != str1 || strcmp(str1, "essai"))
-		printf("\tstr should have been concatened\n");
+		printf("\tstr should have been concatened: %s\n", str1);
 	else
 		printf("\ttest 1: OK\n");
 	strcpy(str2, "truc");
 	ptr = ft_strcat(str1, str2);
 	if (ptr != str1 || strcmp(str1, "essaitruc"))
-		printf("\tstr should have been concatened\n");
+		printf("\tstr should have been concatened: %s\n", str1);
 	else
 		printf("\ttest 2: OK\n");
 }

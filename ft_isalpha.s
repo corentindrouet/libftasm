@@ -6,33 +6,24 @@ _ft_isalpha:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	mov r8, 'A'
-	jmp startuppercase
+	jmp verifuppercase
 
-startuppercase:
-	cmp rdi, r8
-	je endcorrect
-	cmp r8, 'Z'
-	je initlowercase
-	inc r8
-	jmp startuppercase
+verifuppercase:
+	cmp rdi, 'Z'
+	jg veriflowercase
+	cmp rdi, 'A'
+	jge endcorrect
+	jmp end
 
-initlowercase:
-	mov r8, 'a'
-	jmp startlowercase
-
-startlowercase:
-	cmp rdi, r8
-	je endcorrect
-	cmp r8, 'z'
-	je end
-	inc r8
-	jmp startlowercase
+veriflowercase:
+	cmp rdi, 'a'
+	jl end
+	cmp rdi, 'z'
+	jle endcorrect
+	jmp end
 
 endcorrect:
 	mov rax, 1
-	leave
-	ret
 
 end:
 	leave

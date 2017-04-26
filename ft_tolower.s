@@ -6,24 +6,21 @@ _ft_tolower:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	push rdi
 	call _ft_isalpha
-	mov rax, rdi
 	cmp rax, 0
-	je end
+	je endincorrect
 	cmp rdi, 'A'
-	jge isupper
-	jmp end
-
-isupper:
+	jl endincorrect
 	cmp rdi, 'Z'
-	jle endcorrect
-	jmp end
-
-endcorrect:
+	jg endincorrect
+	pop rdi
 	add rdi, 32
 	mov rax, rdi
-	leave
-	ret
+	jmp end
+
+endincorrect:
+	pop rax
 
 end:
 	leave

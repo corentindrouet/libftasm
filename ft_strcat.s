@@ -5,31 +5,32 @@ _ft_strcat:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
-	mov rax, rdi
-	and r8, 0
+	push rdi
+	xor rcx, rcx
 
 lenrdi:
-	mov r9, [rdi]
-	cmp r9, 0
+	mov r10, [rdi]
+	cmp r10, 0
 	je lenrsi
 	inc rdi
 	jmp lenrdi
 
 lenrsi:
-	mov r9, [rsi + r8]
-	cmp r9, 0
+	mov r10, [rsi + rcx]
+	cmp r10, 0
 	je loop_cat
-	inc r8
+	inc rcx
 	jmp lenrsi
 
 loop_cat:
-	cmp r8, 0
+	cmp rcx, 0
 	je end
-	dec r8
-	mov bl, [rsi + r8]
-	mov [rdi + r8], bl
+	dec rcx
+	mov bl, [rsi + rcx]
+	mov [rdi + rcx], bl
 	jmp loop_cat
 
 end:
+	pop rax
 	leave
 	ret

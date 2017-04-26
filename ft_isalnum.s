@@ -10,18 +10,11 @@ _ft_isalnum:
 	mov rax, 0
 	call _ft_isdigit
 	cmp rax, 1
-	je endcorrect
+	je end
 	mov rax, 0
 	call _ft_isalpha
 	cmp rax, 1
-	je endcorrect
-	mov rax, 0
-	jmp end
-
-endcorrect:
-	mov rax, 1
-	leave
-	ret
+	je end
 
 end:
 	leave
