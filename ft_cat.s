@@ -2,7 +2,6 @@ section .text
 	global _ft_cat
 	extern _malloc
 	extern _free
-	extern _ft_puts
 	extern _ft_bzero
 
 _ft_cat:

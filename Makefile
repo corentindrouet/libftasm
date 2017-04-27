@@ -6,7 +6,7 @@
 #    By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 13:04:33 by cdrouet           #+#    #+#              #
-#    Updated: 2017/04/26 13:12:14 by cdrouet          ###   ########.fr        #
+#    Updated: 2017/04/27 15:35:17 by cdrouet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = ft_bzero.s \
 	  ft_memset.s \
 	  ft_memcpy.s \
 	  ft_strdup.s \
-	  ft_cat.s
+	  ft_cat.s \
+	  ft_putnbr.s
 TEST_SRC= main.c
 TEST_NAME=test_asm
 BIN = $(SRC:.s=.o)
