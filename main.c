@@ -4,25 +4,10 @@
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
+#include "libfts.h"
 #define BZERO_TEST 1
 #define STRCAT_TEST 1
 #define ISALPHA_TEST 1
-
-extern void	ft_bzero(void *str, int a);
-extern char	*ft_strcat(void *str1, void *str2);
-extern int	ft_isalpha(int c);
-extern int	ft_isdigit(int c);
-extern int	ft_isalnum(int c);
-extern int	ft_isascii(int c);
-extern int	ft_isprint(int c);
-extern int	ft_toupper(int c);
-extern int	ft_tolower(int c);
-extern int	ft_puts(char *c);
-extern size_t	ft_strlen(char *c);
-extern void	*ft_memset(void *b, int c, size_t len);
-extern void	*ft_memcpy(void *dst, void *src, size_t n);
-extern char	*ft_strdup(const char *s1);
-extern void	ft_cat(int fd);
 
 void	test_ft_cat()
 {

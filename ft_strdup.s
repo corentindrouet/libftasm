@@ -8,6 +8,8 @@ _ft_strdup:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	cmp rdi, 0
+	je end
 	push rdi
 	call _ft_strlen
 	add rax, 1

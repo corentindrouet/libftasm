@@ -6,6 +6,8 @@ _ft_strlen:
 	mov rbp, rsp
 	sub rsp, 16
 	xor rax, rax
+	cmp rdi, 0
+	je end
 	xor rcx, rcx
 	dec rcx
 	cld
@@ -13,5 +15,7 @@ _ft_strlen:
 	inc rcx
 	not rcx
 	mov rax, rcx
+
+end:
 	leave
 	ret

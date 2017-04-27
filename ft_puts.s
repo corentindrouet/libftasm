@@ -2,6 +2,9 @@ section .data
 	return:
 		.string db 10
 		.len equ $ - return.string
+	nullptr:
+		.string db "(null)"
+		.len equ $ - nullptr.string
 
 section .text
 	global _ft_puts
@@ -10,6 +13,8 @@ _ft_puts:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	cmp rdi, 0
+	je null
 	xor rdx, rdx
 
 start:
@@ -18,6 +23,10 @@ start:
 	jz end
 	inc rdx
 	jmp start
+
+null:
+	lea rdi, [rel nullptr.string]
+	mov rdx, nullptr.len
 
 end:
 	mov rax, 0x2000004

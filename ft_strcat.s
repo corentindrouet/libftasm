@@ -5,6 +5,10 @@ _ft_strcat:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	cmp rdi, 0
+	je end
+	cmp rsi, 0
+	je end
 	push rdi
 	xor rcx, rcx
 
@@ -30,7 +34,9 @@ loop_cat:
 	mov [rdi + rcx], bl
 	jmp loop_cat
 
-end:
+popthestack:
 	pop rax
+
+end:
 	leave
 	ret

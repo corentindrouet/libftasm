@@ -5,6 +5,8 @@ _ft_bzero:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	cmp rdi, 0
+	je end
 	jmp start
 
 start:
