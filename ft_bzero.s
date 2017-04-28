@@ -10,7 +10,7 @@ _ft_bzero:
 	jmp start
 
 start:
-	cmp rsi, 0
+	cmp sil, 0
 	je end
 	mov bl, 0
 	dec rsi

@@ -14,14 +14,14 @@ _ft_strcat:
 
 lenrdi:
 	mov r10, [rdi]
-	cmp r10, 0
+	cmp r10b, 0
 	je lenrsi
 	inc rdi
 	jmp lenrdi
 
 lenrsi:
 	mov r10, [rsi + rcx]
-	cmp r10, 0
+	cmp r10b, 0
 	je loop_cat
 	inc rcx
 	jmp lenrsi
