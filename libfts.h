@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 08:35:19 by cdrouet           #+#    #+#             */
-/*   Updated: 2017/04/27 13:40:22 by cdrouet          ###   ########.fr       */
+/*   Updated: 2017/04/28 08:54:40 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ extern void		*ft_memset(void *b, int c, size_t len);
 extern void		*ft_memcpy(void *dst, void *src, size_t n);
 extern char		*ft_strdup(const char *s1);
 extern void		ft_cat(int fd);
+extern void		ft_putnbr(int nb);
 
 #endif

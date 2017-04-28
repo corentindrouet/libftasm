@@ -9,7 +9,7 @@ _ft_strcat:
 	je end
 	cmp rsi, 0
 	je end
-	push rdi
+	mov rax, rdi
 	xor rcx, rcx
 
 lenrdi:
@@ -33,9 +33,6 @@ loop_cat:
 	mov bl, [rsi + rcx]
 	mov [rdi + rcx], bl
 	jmp loop_cat
-
-popthestack:
-	pop rax
 
 end:
 	leave
