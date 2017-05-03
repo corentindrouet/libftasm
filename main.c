@@ -34,6 +34,15 @@ void	test_ft_strdup()
 	else
 		printf("\ttest1: OK\n");
 	free(ptr);
+	ptr = ft_strdup("");
+	if (!ptr)
+		printf("\tempty ptr\n");
+	else if (ptr == str)
+		printf("\tno allocations have been done\n");
+	else if (strcmp(ptr, ""))
+		printf("\tthe strings are differents: _ft:%s, std:%s\n", ptr, str);
+	else
+		printf("\ttest2: OK\n");
 	ft_strdup(NULL);
 	printf("\tNULL ptr OK\n");
 }

@@ -12,6 +12,8 @@ _ft_cat:
 	mov rdi, 257
 	push rdi
 	call _malloc
+	cmp rax, 0
+	je endfail
 	pop rdi
 	push rax
 
@@ -49,5 +51,9 @@ end:
 	call _free
 	pop rdi
 	pop rdi
+	leave
+	ret
+
+endfail:
 	leave
 	ret
