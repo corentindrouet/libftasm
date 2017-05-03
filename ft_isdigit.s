@@ -8,9 +8,9 @@ _ft_isdigit:
 	mov rax, 0
 
 start:
-	cmp rdi, '0'
+	cmp edi, '0'
 	jl end
-	cmp rdi, '9'
+	cmp edi, '9'
 	jg end
 	mov rax, 1
 

@@ -8,11 +8,11 @@ _ft_isascii:
 	mov rax, 0
 
 test_min:
-	cmp rdi, 0
+	cmp edi, 0
 	jl end
 
 test_max:
-	cmp rdi, 127
+	cmp edi, 127
 	jg end
 	mov rax, 1
 

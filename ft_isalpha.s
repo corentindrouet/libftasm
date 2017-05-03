@@ -9,16 +9,16 @@ _ft_isalpha:
 	jmp verifuppercase
 
 verifuppercase:
-	cmp rdi, 'Z'
+	cmp edi, 'Z'
 	jg veriflowercase
-	cmp rdi, 'A'
+	cmp edi, 'A'
 	jge endcorrect
 	jmp end
 
 veriflowercase:
-	cmp rdi, 'a'
+	cmp edi, 'a'
 	jl end
-	cmp rdi, 'z'
+	cmp edi, 'z'
 	jle endcorrect
 	jmp end
 

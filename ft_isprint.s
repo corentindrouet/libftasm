@@ -6,9 +6,9 @@ _ft_isprint:
 	mov rbp, rsp
 	sub rsp, 16
 	mov rax, 0
-	cmp rdi, 32
+	cmp edi, 32
 	jl end
-	cmp rdi, 126
+	cmp edi, 126
 	jg end
 	mov rax, 1
 

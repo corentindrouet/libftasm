@@ -10,12 +10,12 @@ _ft_tolower:
 	call _ft_isalpha
 	cmp rax, 0
 	je endincorrect
-	cmp rdi, 'A'
+	cmp edi, 'A'
 	jl endincorrect
-	cmp rdi, 'Z'
+	cmp edi, 'Z'
 	jg endincorrect
 	pop rdi
-	add rdi, 32
+	add edi, 32
 	mov rax, rdi
 	jmp end
 

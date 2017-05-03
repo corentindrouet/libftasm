@@ -8,6 +8,8 @@ _ft_cat:
 	push rbp
 	mov rbp, rsp
 	sub rsp, 16
+	cmp edi, 0
+	jl endfail
 	push rdi
 	mov rdi, 257
 	push rdi

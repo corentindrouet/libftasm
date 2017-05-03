@@ -41,8 +41,18 @@ printneg:
 	mov rdx, 1
 	syscall
 	pop rdi
-	neg edi
-	jmp check_part
+	mov r10, rdi
+	xor rdx, rdx
+	mov rax, rdi
+	mov rbx, 10
+	idiv rbx
+	mov rdi, rax
+	push rdx
+	call _ft_putnbr
+	pop rdi
+	call _ft_putnbr
+	leave
+	ret
 
 print:
 	add rdi, '0'

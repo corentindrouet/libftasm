@@ -4,18 +4,33 @@
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
+#include <limits.h>
 #include "libfts.h"
 #define BZERO_TEST 1
 #define STRCAT_TEST 1
 #define ISALPHA_TEST 1
 
+void	test_ft_putnbr()
+{
+	printf("FT_PUTNBR TESTS:\n");
+	write(1, "\n", 1);
+	ft_putnbr(INT_MIN);
+	write(1, "\n", 1);
+	ft_putnbr(INT_MAX);
+	write(1, "\n", 1);
+	ft_putnbr(0);
+	write(1, "\n", 1);
+}
+
 void	test_ft_cat()
 {
 	int fd;
 
+	printf("FT_CAT TESTS:\n\n");
 	fd = open("Makefile", O_RDONLY);
 	ft_cat(fd);
 	close(fd);
+	ft_cat(-1);
 }
 
 void	test_ft_strdup()
@@ -307,5 +322,6 @@ int main(void)
 	test_ft_memcpy();
 	test_ft_strdup();
 	test_ft_cat();
+	test_ft_putnbr();
 	return (0);
 }
