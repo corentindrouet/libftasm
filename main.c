@@ -10,6 +10,34 @@
 #define STRCAT_TEST 1
 #define ISALPHA_TEST 1
 
+void	test_ft_strjoin()
+{
+	char *ptr;
+
+	printf("FT_STRJOIN TESTS:\n");
+	ptr = ft_strjoin("bonjour", "\naurevoir");
+	if (!ptr)
+		printf("\tempty pointer\n");
+	else if (strcmp(ptr, "bonjour\naurevoir"))
+		printf("\tthe strings are differents: _ft:%s, std:bonjour\naurevoir\n", ptr);
+	else
+		printf("\ttest1: OK\n");
+	free(ptr);
+	ptr = ft_strjoin("", "aurevoir");
+	if (!ptr)
+		printf("\tempty pointer\n");
+	else if (strcmp(ptr, "aurevoir"))
+		printf("\tthe strings are differents: _ft:%s, std:aurevoir\n", ptr);
+	else
+		printf("\ttest2: OK\n");
+	free(ptr);
+	ptr = ft_strjoin(NULL, NULL);
+	if (!ptr)
+		printf("\tNULL str OK\n");
+	else
+		printf("\tNULL str should not return a pointer");
+}
+
 void	test_ft_putnbr()
 {
 	printf("FT_PUTNBR TESTS:\n");
@@ -323,5 +351,6 @@ int main(void)
 	test_ft_strdup();
 	test_ft_cat();
 	test_ft_putnbr();
+	test_ft_strjoin();
 	return (0);
 }

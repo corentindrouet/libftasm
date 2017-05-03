@@ -6,7 +6,7 @@
 /*   By: cdrouet <cdrouet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 08:35:19 by cdrouet           #+#    #+#             */
-/*   Updated: 2017/05/03 11:03:42 by cdrouet          ###   ########.fr       */
+/*   Updated: 2017/05/03 15:03:37 by cdrouet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ extern void		*ft_memcpy(void *restrict dst,
 extern char		*ft_strdup(const char *s1);
 extern void		ft_cat(int fd);
 extern void		ft_putnbr(int nb);
+extern char		*ft_strjoin(char const *s1, char const *s2);
 
 #endif
