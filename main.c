@@ -34,6 +34,8 @@ void	test_ft_strdup()
 	else
 		printf("\ttest1: OK\n");
 	free(ptr);
+	ft_strdup(NULL);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_ft_memcpy()
@@ -64,6 +66,8 @@ void	test_ft_memcpy()
 		printf("\ttest3: OK\n");
 	else
 		printf("\ttest3:fail - ft_%s, std:%s\n", ptr1, ptr2);
+	ft_memcpy(NULL, NULL, 13421);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_ft_memset()
@@ -82,6 +86,8 @@ void	test_ft_memset()
 		printf("\ttest2: OK\n");
 	else
 		printf("\ttest2: fail - ft_:%s, std:%s\n", str, str2);
+	ft_memset(NULL, 'q', 1234);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_ft_strlen()
@@ -98,12 +104,16 @@ void	test_ft_strlen()
 		printf("\ttest2: OK\n");
 	else
 		printf("\ttest2: fail -  ft_:%ld, std:%ld\n", ft_strlen(str), strlen(str));
+	ft_strlen(NULL);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_ft_puts()
 {
 	char re[10] = "bonjour";
 	ft_puts(re);
+	ft_puts(NULL);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_tolower()
@@ -243,6 +253,8 @@ void	test_bzero()
 		printf("\tstr[10] should not be 0\n");
 	else
 		printf("\ttest 2: OK\n");
+	ft_bzero(NULL, 194837245);
+	printf("\tNULL ptr OK\n");
 }
 
 void	test_strcat()
@@ -265,6 +277,8 @@ void	test_strcat()
 		printf("\tstr should have been concatened: %s\n", str1);
 	else
 		printf("\ttest 2: OK\n");
+	ft_strcat(NULL, NULL);
+	printf("\tNULL ptr OK\n");
 }
 
 int main(void)
